@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-yn4ar$va-r4bvlx3%jqh(@=o_)!)izq_y#j&%(4!#og-c3+ao!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['docscribble.onrender.com' , '*']
 
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
