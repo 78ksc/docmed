@@ -56,7 +56,6 @@ urlpatterns = [
     path('', include('med.urls')),
     path('', include('client.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-handler404 = 'authn.views.error_404'
 
 # if settings.DEBUG:
 #     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
