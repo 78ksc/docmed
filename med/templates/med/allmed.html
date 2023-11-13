@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div>
+    {% for i in meds %}
+    <span>
+        <div>
+            <img src="{{i.pic.url}}" alt="...">
+        </div>
+        
+        <div>
+            <span>{{i.name}}</span>
+            <span>{{i.brand}}</span>
+            <span>{{i.price}}</span>
+        </div>
+    </span>
+    {% endfor %}
+</div>
+{% endblock content %}

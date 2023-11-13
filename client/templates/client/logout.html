@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="bod">
+   <div class="mid">
+    <div class="logout">
+  <div class="con">
+    <h3>LOGOUT</h3>
+    <form method="POST">
+      {% csrf_token %}
+      <p>Are you sure you want to Logout</p>
+      <div class="linel">
+        <button type="submit">Log out</button>
+      <div class="btnl">
+        <a href="{% url 'home' %}">Home</a>
+      </div>
+      </div>
+      
+    </form>
+  </div>
+  
+</div>
+</div> 
+</div>
+
+
+      
+
+
+{% endblock content %}

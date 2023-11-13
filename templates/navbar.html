@@ -1,0 +1,27 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head> 
+<body>-->
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item"><a href="{% url 'docs' %}">Doctors</a></li>
+            <li class="nav-item"><a href="{% url 'meds' %}">Medicines</a></li>
+            
+            {% if request.user.is_authenticated %}
+            <li class="nav-item"><a href="{% url 'account' %}">Account</a></li>
+            {% else %}
+            <li class="nav-item"><a href="{% url 'login' %}">Login</a></li>
+            <li class="nav-item"><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    
+<!--  
+</body>
+
+ </html> -->

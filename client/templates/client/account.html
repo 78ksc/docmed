@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="mid">
+    <div class="login-container">
+        <h2>My Profile</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-container">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="{{ profile.user.username }}" disabled>
+            </div>
+            <div class="input-container">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" 
+                {% if profile.user.email is not None %}
+                value="{{ profile.user.email }}"
+                {% endif %}>
+            </div>
+            <div class="input-container">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" 
+                {% if profile.phone is not None %}
+                value="{{ profile.phone }}"
+                {% endif %}>
+            </div>
+            <div class="input-container">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" 
+                {% if profile.state is not None %}
+                value="{{ profile.state }}"
+                {% endif %}>
+            </div>
+            <div class="input-container">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" 
+                {% if profile.city is not None %}
+                value="{{ profile.city }}"
+                {% endif %}>
+            </div>
+            <div class="input-container">
+                <label for="pincode">Pincode</label>
+                <input type="text" id="pincode" name="pincode" 
+                {% if profile.pincode is not None %}
+                value="{{ profile.pincode }}"
+                {% endif %}>
+            </div>
+            <div class="input-container">
+                <label for="area">Area</label>
+                <input type="text" id="area" name="area" 
+                {% if profile.area is not None %}
+                value="{{ profile.area }}"
+                {% endif %}>
+            </div>
+            <div class="input-container">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" 
+                {% if profile.dob is not None %}
+                value="{{ profile.dob|date:'Y-m-d' }}"
+                {% endif %}>
+            </div>
+            <button type="submit">Save Changes</button>
+        </form>
+        <div class="btnl">
+            <a href="{% url 'home' %}">Home</a>
+        </div>
+        <div class="btnl">
+            <a href="{% url 'accountEdit' %}">Edit</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

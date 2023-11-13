@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+<div>
+    {% for i in docs %}
+    <span>
+        <div>
+            <img src="{{i.pic.url}}" alt="...">
+        </div>
+        
+        <div>
+            <span>{{i.f_name}}</span>
+            <span>{{i.l_name}}</span>
+            <span>{{i.spec}}</span>
+            <span>{{i.exp}}</span>
+            <span>{{i.edu}}</span>
+        </div>
+    </span>
+    {% endfor %}
+</div>
+{% endblock content %}

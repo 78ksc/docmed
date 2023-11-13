@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Web Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/foot.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/logs.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}"> -->
+
+</head>
+<body>
+{% include 'navbar.html' %} 
+{% block content %}
+
+{% endblock content %}
+{% include 'footer.html' %}
+</body>
+</html>

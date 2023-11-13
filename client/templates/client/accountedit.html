@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="mid">
+    <div class="login-container">
+        <h2>Edit Profile</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-container">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone" value="{{ profile.phone }}">
+            </div>
+            
+            <div class="input-container">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" value="{{ profile.state }}">
+            </div>
+            <div class="input-container">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" value="{{ profile.city }}">
+            </div>
+            <div class="input-container">
+                <label for="pincode">Pincode</label>
+                <input type="text" id="pincode" name="pincode" value="{{ profile.pincode }}">
+            </div>
+            <div class="input-container">
+                <label for="area">Area</label>
+                <input type="text" id="area" name="area" value="{{ profile.area }}">
+            </div>
+            <div class="input-container">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" value="{{ profile.dob|date:"Y-m-d" }}">
+            </div>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}
