@@ -21,6 +21,7 @@ from django.shortcuts import render
 from doc.models import Doctor
 from med.models import Medicen
 from client.models import Appoint,Client
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # from django.contrib.auth.decorators import login_required
 
 
@@ -57,6 +58,7 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 handler404 = 'authn.views.error_404'
 
+urlpatterns += staticfiles_urlpatterns()
 
 # if settings.DEBUG:
 #     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
