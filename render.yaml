@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: estar
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn mysite.wsgi:application"
