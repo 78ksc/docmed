@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: estar
+    name: DocScribble
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn mysite.wsgi:application"
+    startCommand: "gunicorn docmed.wsgi:application"
