@@ -22,5 +22,11 @@ class Appoint(models.Model):
     pacient_addr = models.CharField(max_length=200)
     doctor_spec = models.CharField(max_length=120,blank=True)
     pacient_symptom = models.CharField(max_length=240)
-    emergency = models.BooleanField(default=False)
+    emergency = models.BooleanField(default=False,null=True)
     alloted_docto = models.ForeignKey(Doctor,on_delete=models.SET_NULL,null=True)
+
+class DocAppoint(models.Model):
+    booker = models.ForeignKey(Client,on_delete=models.DO_NOTHING,null=True,blank=True)
+    doctor = models.ForeignKey(Doctor,on_delete=models.DO_NOTHING,null=True,blank=True)
+    created_at =  models.DateTimeField(auto_now_add=True)
+    alloted_time =  models.DateTimeField(null=True,blank=True)

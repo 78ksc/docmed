@@ -19,7 +19,8 @@ def log(request):
         Auser = authenticate(request , username = uname , password = pass1)
         if Auser is not None:
             login(request, Auser)
-            return redirect('home')
+            return redirect('account')
+            # return redirect('home')
     con={
 
     }
@@ -27,6 +28,7 @@ def log(request):
 
 def register(request):
     # form = UserCreationForm()
+    count = 1
     form = CreateUser()
     if request.method == "POST":
         form = CreateUser(request.POST) #make all one by one loke username email pass etc so that we can access
@@ -43,6 +45,7 @@ def register(request):
                 return render(request, 'client/register.html', {'msg': 'User not found'})
             print(obj)
             login(request,obj)
+            count = 0
             return redirect('home')
 
     con={
@@ -57,6 +60,7 @@ def logo(request):
     return render(request,'client/logout.html')
 
 def account(request):
+    count = 0
     obj = User.objects.get(username = request.user)
     profile = Client.objects.get(user = obj.id)
 

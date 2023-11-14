@@ -60,14 +60,20 @@
                 value="{{ profile.dob|date:'Y-m-d' }}"
                 {% endif %}>
             </div>
-            <button type="submit">Save Changes</button>
+            <button type="submit">Save</button>
         </form>
+        {% if count is 1 %}
+        <div class="btnl">
+            <a href="{% url 'home' %}">Skip</a>
+        </div>
+        {% else %}
         <div class="btnl">
             <a href="{% url 'home' %}">Home</a>
         </div>
-        <div class="btnl">
+        {% endif %}
+        <!-- <div class="btnl">
             <a href="{% url 'accountEdit' %}">Edit</a>
-        </div>
+        </div> -->
     </div>
 </div>
 {% endblock content %}

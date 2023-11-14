@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="entry-container">
+    
+    <div class="doctor-entry">
+        <img class="doctor-img" src="{{i.pic.url}}" alt="Doctor Profile">
+        <div class="doctor-info">
+            <h3>{{i.f_name}} {{i.l_name}}</h3>
+            <p>Specialization: {{i.spec}}</p>
+            <p>Experience: {{i.exp}} years</p>
+            <p>Education: {{i.edu}}</p>
+        </div>
+    </div>
+    
+</div>
+<h3>
+we will call you soon for the conformation
+</h3>
+<div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14526.05017355105!2d72.76220856842923!3d24.467691943680787!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395d29e3d172a4cb%3A0xcb2c384b0efff229!2sEstar%20Driving!5e0!3m2!1sen!2sin!4v1699942053916!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+{% endblock content %}
