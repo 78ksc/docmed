@@ -321,3 +321,15 @@ input[type="checkbox"] + label {
 .patient-name{
     width: 18rem;
 }
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: lightgreen;
+    color :black;
+    height:40px;
+    width: 180px;
+    margin: 4rem auto;
+}
