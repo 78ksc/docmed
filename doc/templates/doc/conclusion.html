@@ -1,0 +1,63 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <h1>Conclusion</h1>
+
+        {% if docsuggests %}
+            {% for docsug in docsuggests %}
+                <div class="docsuggest">
+                    <!-- Display details of each Docsuggest -->
+                    <h2>Suggestion {{ forloop.counter }}</h2>
+                    <!-- Doctor Details -->
+                    
+
+                    <div class="doctor-entry">
+                        <img class="doctor-img" src="{{docsug.doctor.pic.url}}" alt="Doctor Profile">
+                        <div class="doctor-info">
+                            <h3>{{docsug.doctor.f_name}} {{docsug.doctor.l_name}}</h3>
+                            <p>Specialization: {{docsug.doctor.spec}}</p>
+                            <p>Experience: {{docsug.doctor.exp}} years</p>
+                            <p>Education: {{docsug.doctor.edu}}</p>
+                        </div>
+                    </div>
+
+                    <!-- Medications -->
+                    
+
+                    <div class="section medications-section">
+                        <h2>Medications</h2>
+                        <div class="entry-container">
+                            {% for i in docsug.prescriptions.all %}
+                            <div class="medication-entry">
+                                <img class="medication-img" src="{{i.pic.url}}" alt="Medication">
+                                <div class="medication-info">
+                                    <h3>{{i.name}}</h3>
+                                    <p>Brand: {{i.brand}}</p>
+                                    <p class="price">${{i.price}}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Investigations -->
+                    <div class="investigations">
+                        <h3>Investigations</h3>
+                        {% for inves in docsug.investigations.all %}
+                            <div class="investigation-details">
+                                <p><strong>Investigation:</strong> {{ inves.i_name }}</p>
+                                <p><strong>Result:</strong> {{ inves.i_result }}</p>
+                                <p><strong>Price:</strong> {{ inves.i_price }}</p>
+                                <!-- Add more investigation details as needed -->
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No suggestions found for this client.</p>
+        {% endif %}
+    </div>
+{% endblock content %}

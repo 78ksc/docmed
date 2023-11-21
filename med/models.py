@@ -6,3 +6,8 @@ class Medicen(models.Model):
     name = models.CharField(max_length=200)
     brand = models.CharField(max_length=100)
     price = models.IntegerField()
+
+class Investigation(models.Model):
+    i_name = models.CharField(max_length=200)
+    i_result = models.CharField(max_length=200)
+    i_price = models.IntegerField()

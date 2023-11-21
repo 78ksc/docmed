@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.shortcuts import render
-from doc.models import Doctor
+from doc.models import Doctor,Docsuggest
 from med.models import Medicen
 from client.models import Appoint,Client,DocAppoint
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -30,9 +30,11 @@ def home(request):
     meds = Medicen.objects.all()[0:4]
     try:
         client = Client.objects.get(user=request.user)
+        docsuggests = Docsuggest.objects.filter(client=client)
     except:
         client = None
-
+        docsuggests = None
+ 
     if request.method == 'POST':
         pname = request.POST.get('pname')
         page = request.POST.get('page')
@@ -66,6 +68,7 @@ def home(request):
         'docs':docs,
         'meds':meds,
         'client':client,
+        'docsuggests': docsuggests,
     }
     return render(request,'home.html',con)
 
